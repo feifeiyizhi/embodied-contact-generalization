@@ -47,6 +47,18 @@ The evidence loop tracks:
 - `over_force_rate`, first-contact force, and first-contact speed;
 - failure types such as hard impact, raw-contact-only behavior, contact flicker, early release, and near-surface mismatch.
 
+## Diagnostic Figures
+
+Two lightweight diagnostic figures are included from the local Fusion Mechanics material set. The labels in the plots are historical sandbox candidate identifiers, so they should be read as anonymized conditions rather than public product names.
+
+![Diagnostic metric comparison](figures/diagnostic_metric_comparison.png)
+
+The metric comparison shows why loose contact is insufficient as evidence: valid and stable soft-touch rates remain sparse, while raw-contact-only behavior, force tails, and first-contact speed expose the real blockers.
+
+![First-contact force distribution](figures/first_contact_force_distribution.png)
+
+The force distribution supports the same evidence boundary. It helps separate gentle-contact candidates from hard-impact behavior, but it does not establish a solved controller.
+
 ## Run Demo
 
 ```bash
@@ -59,6 +71,7 @@ The demo reads synthetic redacted sample metrics and writes a Markdown report. I
 ## Files
 
 - `README.md`: project summary and claim boundary.
+- `figures/`: two lightweight diagnostic plots from sandbox evaluation material.
 - `soft_touch_evidence_loop_demo/`: runnable metric-classification demo.
 - `LICENSE_OR_ACCESS_NOTE.md`: access and reuse boundary.
 
