@@ -1,0 +1,54 @@
+{
+  "repository_folder": "qingmiao_embodied_generalization_github",
+  "created_for": "Qingmiao embodied generalization project showcase",
+  "prepared_on": "2026-05-10",
+  "theme": "embodied model task generalization through a full token control loop",
+  "minimum_validation_task": "simulation soft-touch contact quality",
+  "architecture_direction": [
+    "Emu3.5-style multimodal meta-optimization",
+    "DreamerV3-style world model engine",
+    "Emu3.5-style token action prediction conditioned on RSSM latent state z(t)",
+    "safety wrapper and motor execution boundary"
+  ],
+  "included_files_count": 21,
+  "included_top_level_files": [
+    ".gitignore",
+    "GITHUB_MANUAL_NEXT_STEPS.md",
+    "GITHUB_READINESS_CHECK.json",
+    "GITHUB_READINESS_CHECK.md",
+    "LICENSE_OR_ACCESS_NOTE.md",
+    "README.md",
+    "REPO_NAVIGATION.md",
+    "REPRODUCIBILITY.md",
+    "qingmiao_github_showcase_manifest.json"
+  ],
+  "included_directories": [
+    "data_samples",
+    "docs",
+    "figures",
+    "reports",
+    "soft_touch_evidence_loop_demo"
+  ],
+  "runnable_demo": {
+    "path": "soft_touch_evidence_loop_demo/run_demo.py",
+    "input": "soft_touch_evidence_loop_demo/sample_metrics.json",
+    "output": "soft_touch_evidence_loop_demo/demo_report.md",
+    "requires_gpu": false,
+    "requires_training": false
+  },
+  "exclusions": {
+    "raw_traces": true,
+    "checkpoints": true,
+    "caches": true,
+    "large_files": true,
+    "internal_audit_files": true,
+    "full_internal_reports": true,
+    "private_platform_paths": true
+  },
+  "claim_boundary": {
+    "claim_tier": "sandbox_level_diagnostic_signal",
+    "soft_touch_solved": false,
+    "direct_motor_control_by_emu35": false,
+    "full_dreamerv3_emu35_closed_loop_deployed": false
+  }
+}

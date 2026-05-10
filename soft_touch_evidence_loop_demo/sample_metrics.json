@@ -1,0 +1,77 @@
+{
+  "dataset_note": "Synthetic redacted sample for public evidence-loop demonstration.",
+  "episodes": [
+    {
+      "episode_id": "sample_001",
+      "raw_contact": true,
+      "valid_touch": false,
+      "stable_soft_touch": false,
+      "over_force": true,
+      "first_contact_force": 31.4,
+      "first_contact_speed": 0.72,
+      "contact_steps": 2,
+      "max_contact_streak": 2,
+      "surface_gap_min": 0.0
+    },
+    {
+      "episode_id": "sample_002",
+      "raw_contact": true,
+      "valid_touch": true,
+      "stable_soft_touch": false,
+      "over_force": false,
+      "first_contact_force": 5.2,
+      "first_contact_speed": 0.18,
+      "contact_steps": 5,
+      "max_contact_streak": 3,
+      "surface_gap_min": 0.0
+    },
+    {
+      "episode_id": "sample_003",
+      "raw_contact": true,
+      "valid_touch": true,
+      "stable_soft_touch": true,
+      "over_force": false,
+      "first_contact_force": 2.1,
+      "first_contact_speed": 0.06,
+      "contact_steps": 18,
+      "max_contact_streak": 14,
+      "surface_gap_min": 0.0
+    },
+    {
+      "episode_id": "sample_004",
+      "raw_contact": false,
+      "valid_touch": false,
+      "stable_soft_touch": false,
+      "over_force": false,
+      "first_contact_force": null,
+      "first_contact_speed": null,
+      "contact_steps": 0,
+      "max_contact_streak": 0,
+      "surface_gap_min": 0.013
+    },
+    {
+      "episode_id": "sample_005",
+      "raw_contact": false,
+      "valid_touch": false,
+      "stable_soft_touch": false,
+      "over_force": false,
+      "first_contact_force": null,
+      "first_contact_speed": null,
+      "contact_steps": 0,
+      "max_contact_streak": 0,
+      "surface_gap_min": 0.001
+    },
+    {
+      "episode_id": "sample_006",
+      "raw_contact": true,
+      "valid_touch": false,
+      "stable_soft_touch": false,
+      "over_force": false,
+      "first_contact_force": 7.6,
+      "first_contact_speed": 0.22,
+      "contact_steps": 1,
+      "max_contact_streak": 1,
+      "surface_gap_min": 0.0
+    }
+  ]
+}
