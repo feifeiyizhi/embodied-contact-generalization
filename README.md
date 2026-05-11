@@ -1,10 +1,10 @@
-# Qingmiao Embodied Generalization Showcase
+# Embodied Contact Generalization
 
 This repository is a compact research showcase for an embodied AI project on task-general contact control.
 
 The long-term goal is embodied model task generalization: a model should learn reusable contact and control representations, then transfer them across manipulation tasks. The current minimum validation task is simulation soft touch, because it exposes whether a controller can distinguish loose contact, unsafe contact, valid touch, and stable low-force contact under strict metrics.
 
-This folder is intentionally small. It contains the public narrative, one architecture note, and a runnable evidence-loop demo. Raw experiment archives, internal audit notes, checkpoints, traces, cache files, and platform logs are excluded.
+This repository is intentionally small. It shows a developing project through its problem definition, diagnostic metrics, reward-design artifacts, and one runnable evidence-loop demo. Raw experiment archives, internal audit notes, checkpoints, traces, cache files, and platform logs are excluded.
 
 ## Research Direction
 
@@ -49,7 +49,7 @@ The evidence loop tracks:
 
 ## Diagnostic Figures
 
-Two lightweight diagnostic figures are included from the local Fusion Mechanics material set. The labels in the plots are historical sandbox candidate identifiers, so they should be read as anonymized conditions rather than public product names.
+The figures below are lightweight public artifacts from sandbox development. Historical branch or version labels should be read as anonymized experimental conditions rather than product names.
 
 ![Diagnostic metric comparison](figures/diagnostic_metric_comparison.png)
 
@@ -58,6 +58,10 @@ The metric comparison shows why loose contact is insufficient as evidence: valid
 ![First-contact force distribution](figures/first_contact_force_distribution.png)
 
 The force distribution supports the same evidence boundary. It helps separate gentle-contact candidates from hard-impact behavior, but it does not establish a solved controller.
+
+![Reward surface v5](figures/reward_surface_v5.png)
+
+The reward surface records one reward-shaping pass for the anthropomorphic-arm soft-touch task. It shows how distance shaping, contact-force penalties, calibration around 3N, and distance-dependent control weights were inspected before running broader policies. This is design evidence for the evaluation loop, not a claim that the controller has solved soft touch.
 
 ## Run Demo
 
@@ -71,7 +75,7 @@ The demo reads synthetic redacted sample metrics and writes a Markdown report. I
 ## Files
 
 - `README.md`: project summary and claim boundary.
-- `figures/`: two lightweight diagnostic plots from sandbox evaluation material.
+- `figures/`: diagnostic plots and reward-design figures from sandbox development.
 - `soft_touch_evidence_loop_demo/`: runnable metric-classification demo.
 - `LICENSE_OR_ACCESS_NOTE.md`: access and reuse boundary.
 
@@ -84,4 +88,4 @@ The current project state is research-in-progress:
 - the DreamerV3 + Emu3.5 closed-loop system is an architecture direction, not a completed deployment;
 - current evidence should be read as sandbox-level diagnostic signal.
 
-For Qingmiao review, the important signal is the builder pattern: define a difficult physical behavior precisely, build an inspectable evaluation loop, keep failure categories honest, and use the minimum task to guide a broader embodied-model architecture.
+The useful signal in this repository is the development pattern: define a difficult physical behavior precisely, build an inspectable evaluation loop, keep failure categories honest, and use the minimum task to guide a broader embodied-model architecture.
