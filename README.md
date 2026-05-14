@@ -14,7 +14,7 @@ The public repository is meant to make the current engineering state readable wi
 - **Autonomous reward-surface optimization:** the project has started building a multi-agent autonomous reinforcement-learning workflow for reward-surface optimization. Different agents are used conceptually for reward-curve design, failure-trajectory diagnosis, metric review, and next-experiment planning.
 - **Stage result:** within the simulation sandbox, the behavior has moved from mostly random collision and over-force contact toward approximate soft-touch candidates with lower speed, lower force, and clearer diagnostic labels. This is reported as development evidence, not as a solved real-robot controller.
 
-See the diagnostic figures and the runnable evidence-loop demo below for the public supporting material.
+See the diagnostic figures, reward-surface code, and runnable evidence-loop demo below for the public supporting material.
 
 ## Research Direction
 
@@ -73,6 +73,19 @@ The force distribution supports the same evidence boundary. It helps separate ge
 
 The reward surface records one reward-shaping pass for the anthropomorphic-arm soft-touch task. It shows how distance shaping, contact-force penalties, calibration around 3N, and distance-dependent control weights were inspected before running broader policies. This is design evidence for the evaluation loop, not a claim that the controller has solved soft touch.
 
+## Reward-Surface Code
+
+The repository includes a small public implementation of the soft-touch reward shape:
+
+```bash
+python3 -m pip install -r reward_surface_demo/requirements.txt
+python3 reward_surface_demo/reward_surface_public.py --output figures/reward_surface_public_demo.png
+```
+
+The script visualizes the engineering logic behind the reward surface: near-target distance shaping, a preferred low-force contact band, hard-impact penalties, approach-speed penalties, stability bonus, and action-smoothness regularization. It is self-contained and does not train a policy, run MuJoCo, load private traces, or expose internal experiment logs.
+
+![Public reward surface demo](figures/reward_surface_public_demo.png)
+
 ## Run Demo
 
 ```bash
@@ -86,6 +99,7 @@ The demo reads synthetic redacted sample metrics and writes a Markdown report. I
 
 - `README.md`: project summary and claim boundary.
 - `figures/`: diagnostic plots and reward-design figures from sandbox development.
+- `reward_surface_demo/`: public reward-surface implementation and visualization script.
 - `soft_touch_evidence_loop_demo/`: runnable metric-classification demo.
 - `LICENSE_OR_ACCESS_NOTE.md`: access and reuse boundary.
 
