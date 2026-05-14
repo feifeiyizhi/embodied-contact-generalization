@@ -6,6 +6,16 @@ The long-term goal is embodied model task generalization: a model should learn r
 
 This repository is intentionally small. It shows a developing project through its problem definition, diagnostic metrics, reward-design artifacts, and one runnable evidence-loop demo. Raw experiment archives, internal audit notes, checkpoints, traces, cache files, and platform logs are excluded.
 
+## Current Public Progress
+
+The public repository is meant to make the current engineering state readable without exposing private logs or large experiment artifacts.
+
+- **3-DOF simulation control platform:** the project has built a MuJoCo-based three-degree-of-freedom soft-touch simulation platform for full token control research. The platform includes the robot XML, Gym-style task interface, delta-action to PD-torque execution chain, contact-quality metrics, fixed evaluation, and event replay hooks.
+- **Autonomous reward-surface optimization:** the project has started building a multi-agent autonomous reinforcement-learning workflow for reward-surface optimization. Different agents are used conceptually for reward-curve design, failure-trajectory diagnosis, metric review, and next-experiment planning.
+- **Stage result:** within the simulation sandbox, the behavior has moved from mostly random collision and over-force contact toward approximate soft-touch candidates with lower speed, lower force, and clearer diagnostic labels. This is reported as development evidence, not as a solved real-robot controller.
+
+See the diagnostic figures and the runnable evidence-loop demo below for the public supporting material.
+
 ## Research Direction
 
 Traditional robot control often separates perception, state estimation, policy learning, action mapping, and motor execution into a specialized chain. This project explores a full token control loop:
