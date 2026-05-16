@@ -1,0 +1,52 @@
+<mujoco model="arm3dof_touch">
+  <compiler angle="radian"/>
+  <option gravity="0 0 -9.81" timestep="0.002" cone="elliptic" impratio="10"/>
+
+  <default>
+    <joint damping="0.5" frictionloss="0.1" armature="0.01"/>
+    <geom condim="6" friction="0.8 0.02 0.001" solimp="0.99 0.999 0.001"/>
+    <motor ctrllimited="true" ctrlrange="-30 30"/>
+  </default>
+
+  <worldbody>
+    <light directional="true" diffuse="0.8 0.8 0.8" specular="0.2 0.2 0.2" pos="0 0 3"/>
+
+    <body name="base" pos="0 0 0.5">
+      <joint name="joint1" type="hinge" axis="0 0 1" range="-2.0 2.0"/>
+      <geom name="link1_geom" type="capsule" fromto="0 0 0 0.5 0 0" size="0.03" mass="0.5" rgba="0.35 0.35 0.38 1"/>
+
+      <body name="link2" pos="0.5 0 0">
+        <joint name="joint2" type="hinge" axis="0 0 1" range="-2.5 2.5"/>
+        <geom name="link2_geom" type="capsule" fromto="0 0 0 0.4 0 0" size="0.025" mass="0.3" rgba="0.42 0.42 0.45 1"/>
+
+        <body name="link3" pos="0.4 0 0">
+          <joint name="joint3" type="hinge" axis="0 0 1" range="-2.5 2.5"/>
+          <geom name="link3_geom" type="capsule" fromto="0 0 0 0.3 0 0" size="0.02" mass="0.15" rgba="0.5 0.5 0.52 1"/>
+
+          <body name="ee" pos="0.3 0 0">
+            <geom name="ee_geom" type="sphere" size="0.025" mass="0.05" rgba="0.2 0.4 0.9 1"/>
+            <site name="ft_sensor" pos="0 0 0" size="0.01"/>
+          </body>
+        </body>
+      </body>
+    </body>
+
+    <body name="target" pos="0.6 0.0 0.5">
+      <geom name="target_geom" type="cylinder" size="0.04 0.005" rgba="0.9 0.2 0.2 0.8" contype="1" conaffinity="1"/>
+    </body>
+
+    <geom name="table" type="plane" size="2 2 0.1" pos="0 0 0" rgba="0.7 0.7 0.6 1" friction="0.6 0.005 0.0001"/>
+    <camera name="overhead" pos="0 0 1.8" euler="0 0 0" fovy="60" mode="fixed"/>
+  </worldbody>
+
+  <actuator>
+    <motor name="m1" joint="joint1"/>
+    <motor name="m2" joint="joint2"/>
+    <motor name="m3" joint="joint3"/>
+  </actuator>
+
+  <sensor>
+    <force name="ft_force" site="ft_sensor"/>
+    <torque name="ft_torque" site="ft_sensor"/>
+  </sensor>
+</mujoco>

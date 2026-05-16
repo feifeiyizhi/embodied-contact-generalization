@@ -29,6 +29,13 @@ runs/
 tensorboard/
 wandb/
 
+# Internal review and private experiment bundles
+PACKAGE_QA*/
+SANITIZATION*/
+REVISION_PLAN*/
+review_bundle*/
+*full*fs4r*
+*internal*audit*
+
 # Local OS metadata
 .DS_Store
-

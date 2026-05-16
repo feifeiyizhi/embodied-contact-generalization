@@ -6,6 +6,8 @@ The long-term goal is embodied model task generalization: a model should learn r
 
 This repository is intentionally small. It shows a developing project through its problem definition, diagnostic metrics, reward-design artifacts, and one runnable evidence-loop demo. Raw experiment archives, internal audit notes, checkpoints, traces, cache files, and platform logs are excluded.
 
+For a compact technical summary, see [docs/technical_brief.md](docs/technical_brief.md). A public reference MuJoCo model is included at [models/arm3dof_touch.xml](models/arm3dof_touch.xml).
+
 ## Current Public Progress
 
 The public repository is meant to make the current engineering state readable without exposing private logs or large experiment artifacts.
@@ -13,6 +15,7 @@ The public repository is meant to make the current engineering state readable wi
 - **3-DOF simulation control platform:** the project has built a MuJoCo-based three-degree-of-freedom soft-touch simulation platform for full token control research. The platform includes the robot XML, Gym-style task interface, delta-action to PD-torque execution chain, contact-quality metrics, fixed evaluation, and event replay hooks.
 - **Autonomous reward-surface optimization:** the project has started building a multi-agent autonomous reinforcement-learning workflow for reward-surface optimization. Different agents are used conceptually for reward-curve design, failure-trajectory diagnosis, metric review, and next-experiment planning.
 - **Stage result:** within the simulation sandbox, the behavior has moved from mostly random collision and over-force contact toward approximate soft-touch candidates with lower speed, lower force, and clearer diagnostic labels. This is reported as development evidence, not as a solved real-robot controller.
+- **Latest engineering status:** private CPU-only diagnostics have produced a narrow safety-wrapper candidate and a retained raw-mapper reference. The next work is to redesign boundary gates around force tails, action-difference attribution, and world-model diagnostics before any broader integration claim.
 
 See the diagnostic figures, reward-surface code, and runnable evidence-loop demo below for the public supporting material.
 
@@ -46,6 +49,8 @@ Emu3.5-style modeling appears in two roles:
 - low-level next-action-token prediction conditioned on observation tokens, goal tokens, and `z(t)`.
 
 DreamerV3 provides the world-model engine and imagined rollouts. A safety wrapper remains necessary for force limits, velocity limits, action clipping, and stop behavior.
+
+The current implementation status is deliberately narrower than the architecture: the repository contains the simulation platform reference, public reward-surface code, diagnostic figures, and a metric evidence-loop demo. It does not contain a completed DreamerV3 + Emu3.5 closed-loop controller.
 
 ## Why Soft Touch
 
@@ -98,6 +103,8 @@ The demo reads synthetic redacted sample metrics and writes a Markdown report. I
 ## Files
 
 - `README.md`: project summary and claim boundary.
+- `docs/technical_brief.md`: concise platform spec, current status, and world-model entry plan.
+- `models/arm3dof_touch.xml`: public reference MuJoCo XML for the 3-DOF contact platform.
 - `figures/`: diagnostic plots and reward-design figures from sandbox development.
 - `reward_surface_demo/`: public reward-surface implementation and visualization script.
 - `soft_touch_evidence_loop_demo/`: runnable metric-classification demo.

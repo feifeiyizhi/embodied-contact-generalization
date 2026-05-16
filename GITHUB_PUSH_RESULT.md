@@ -5,6 +5,6 @@
 - visibility: `PUBLIC`
 - branch: `main`
 - pushed: yes
-- pushed_at: 2026-05-11
+- latest_update_pushed_at: 2026-05-16
 
 This repository is a compact public research scaffold for embodied contact control and task generalization. It excludes raw traces, checkpoints, internal audit files, and full experiment reports.
